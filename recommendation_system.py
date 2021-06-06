@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[131]:
-
-
 import re
 import os
 import string
@@ -13,32 +7,14 @@ import time
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
-from matplotlib import pyplot as plt
 
 from surprise import SVD
 from surprise import Dataset
-from surprise.model_selection import cross_validate
 from surprise import Reader
-from surprise.model_selection import GridSearchCV
-from surprise.prediction_algorithms import SVD
 from surprise.model_selection import train_test_split
-from surprise import accuracy
-from surprise import KNNWithMeans
-from surprise import SVDpp
-from surprise import NMF
-from surprise import KNNBasic
 
 import warnings
 warnings.filterwarnings('ignore')
-
-
-# In[ ]:
-
-
-
-
-
-# In[132]:
 
 
 def fix_checks(check):
@@ -48,7 +24,6 @@ def fix_checks(check):
         return np.nan
 
 
-# In[133]:
 
 
 def check_text(check):
@@ -64,7 +39,6 @@ def check_text(check):
         return "very expensive"
 
 
-# In[134]:
 
 
 def prep_restaurant_data(restaurants_df):
@@ -125,7 +99,6 @@ def prep_restaurant_data(restaurants_df):
     return restaurants_df
 
 
-# In[135]:
 
 
 def create_similarity_matrix(restaurants_df):
@@ -152,7 +125,6 @@ def create_similarity_matrix(restaurants_df):
     return results#, cosine_similarities
 
 
-# In[136]:
 
 
 # Just reads the results out of the dictionary.
@@ -164,7 +136,6 @@ def recommend(item_id, num, restaurants_df):
     return recs
 
 
-# In[137]:
 
 
 def get_recs_df(recs, restaurants_df):
@@ -201,7 +172,6 @@ def get_recs_df(recs, restaurants_df):
     return df_out
 
 
-# In[166]:
 
 
 def get_recommendations(item_id, restaurants_df, n_items=None):
@@ -222,7 +192,6 @@ def get_recommendations(item_id, restaurants_df, n_items=None):
     return recs
 
 
-# In[222]:
 
 
 def CB_recommender(
@@ -349,7 +318,6 @@ def CF_recommender(user_id, ratings_df, n_items, restaurants_df):
     return result #df_user
 
 
-# In[227]:
 
 
 def recommendation_system(
