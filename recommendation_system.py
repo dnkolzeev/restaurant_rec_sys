@@ -359,12 +359,12 @@ def recommendation_system(
 
 
 # read restaurants data:
-restaurants = pd.read_csv("clean_data/restaurants_info.csv",index_col=0)
+restaurants = pd.read_csv("restaurants_info.csv",index_col=0)
 restaurants = prep_restaurant_data(restaurants_df=restaurants)
 
 
 # read reviews_data:
-reviews = pd.read_csv("clean_data/reviews_info.csv",index_col = 0 )
+reviews = pd.read_csv("reviews_info.csv",index_col = 0 )
 ratings = fix_reviews(reviews_df=reviews, restaurants_df=restaurants)
 
 
